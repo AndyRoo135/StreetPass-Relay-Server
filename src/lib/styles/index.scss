@@ -1,0 +1,43 @@
+@use "./font.scss" as font;
+@use "./colors.scss" as colors;
+@use "./theme.scss" as theme;
+
+* {
+  font-family: font.$body;
+  font-size: 12pt;
+  box-sizing: border-box;
+  color: inherit;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: font.$display;
+  font-size: 1.2rem;
+}
+
+p {
+  margin: 0 0 0.3rem;
+}
+
+:any-link {
+  color: light-dark(colors.accent(400), colors.accent(600));
+  text-decoration: none;
+}
+
+li::marker {
+  content: none;
+}
+
+body {
+  margin: 0;
+  color-scheme: light dark;
+
+  background-color: light-dark(colors.primary(50), colors.primary(950));
+  color: light-dark(colors.primary(950), colors.primary(50));
+
+  &[data-theme=light] {
+    color-scheme: only light;
+  }
+  &[data-theme=dark] {
+    color-scheme: only dark;
+  }
+}
