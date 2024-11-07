@@ -1,0 +1,92 @@
+@use "sass:map";
+
+$white: white;
+// do we need grays?
+$black: black;
+
+// primary colors
+$primary-shades: (
+  50: rgb(243, 253, 247),
+  100: rgb(219, 250, 230),
+  150: rgb(196, 247, 214),
+  200: rgb(172, 244, 197),
+  250: rgb(148, 241, 180),
+  300: rgb(125, 238, 164),
+  350: rgb(101, 235, 147),
+  400: rgb(77, 232, 131),
+  450: rgb(53, 228, 114),
+  500: rgb(28, 212, 92),
+  550: rgb(27, 202, 87),
+  600: rgb(23, 178, 77),
+  650: rgb(20, 154, 67),
+  700: rgb(17, 130, 57),
+  750: rgb(14, 107, 46),
+  800: rgb(11, 83, 36),
+  850: rgb(8, 59, 26),
+  900: rgb(5, 36, 15),
+  950: rgb(2, 12, 5)
+);
+@function primary($shade) {
+  @if not map-get($primary-shades, $shade) {
+    @error "Invalid shade `#{$shade}`";
+  }
+  @return map.get($primary-shades, $shade);
+}
+
+// accent colors (desaturated/darkened primary)
+$accent-shades: (
+  50: rgb(247, 249, 248),
+  100: rgb(233, 237, 234),
+  150: rgb(218, 225, 221),
+  200: rgb(203, 213, 207),
+  250: rgb(188, 202, 193),
+  300: rgb(173, 190, 179),
+  350: rgb(158, 178, 166),
+  400: rgb(143, 166, 152),
+  450: rgb(128, 154, 138),
+  500: rgb(113, 142, 125),
+  550: rgb(101, 127, 111),
+  600: rgb(89, 112, 98),
+  650: rgb(77, 97, 85),
+  700: rgb(65, 82, 72),
+  750: rgb(53, 67, 59),
+  800: rgb(42, 52, 46),
+  850: rgb(30, 37, 33),
+  900: rgb(18, 22, 20),
+  950: rgb(6, 7, 7),
+);
+@function accent($shade) {
+  @if not map-get($accent-shades, $shade) {
+    @error "Invalid shade `#{$shade}`";
+  }
+  @return map.get($accent-shades, $shade);
+}
+
+// warning colors (danger or error)
+$danger-shades: (
+  50: rgb(253, 244, 243),
+  100: rgb(250, 222, 219),
+  150: rgb(247, 201, 196),
+  200: rgb(244, 179, 172),
+  250: rgb(241, 157, 148),
+  300: rgb(238, 136, 125),
+  350: rgb(235, 114, 101),
+  400: rgb(232, 92, 77),
+  450: rgb(228, 71, 53),
+  500: rgb(212, 46, 28),
+  550: rgb(202, 44, 27),
+  600: rgb(178, 39, 23),
+  650: rgb(154, 33, 20),
+  700: rgb(130, 28, 17),
+  750: rgb(107, 23, 14),
+  800: rgb(83, 18, 11),
+  850: rgb(59, 13, 8),
+  900: rgb(36, 8, 5),
+  950: rgb(12, 3, 2)
+);
+@function danger($shade) {
+  @if not map-get($danger-shades, $shade) {
+    @error "Invalid shade `#{$shade}`";
+  }
+  @return map.get($danger-shades, $shade);
+}
